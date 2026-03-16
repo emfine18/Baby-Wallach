@@ -11,7 +11,8 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'Noto Sans',-apple-system,sans-serif;background:#fff;color:#0d1f2d;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:'Noto Sans',-apple-system,sans-serif;color:#0d1f2d;overflow-x:hidden;-webkit-font-smoothing:antialiased;background:linear-gradient(150deg,#1a5fb4 0%,#2980d4 40%,#5ab0e0 75%,#b8dff5 100%) fixed}
+body.locked{overflow:hidden}
 
 /* LOCK */
 #lock{position:fixed;inset:0;z-index:900;background:linear-gradient(150deg,#1a5fb4,#2980d4 50%,#a8d8f5);display:flex;align-items:center;justify-content:center;padding:20px}
@@ -32,7 +33,7 @@ body{font-family:'Noto Sans',-apple-system,sans-serif;background:#fff;color:#0d1
 .fl.held{cursor:grabbing;z-index:200}
 
 /* HERO */
-#hero{background:linear-gradient(150deg,#1a5fb4 0%,#2980d4 40%,#5ab0e0 75%,#b8dff5 100%);min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 24px 100px;position:relative;overflow:hidden}
+#hero{background:transparent;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 24px 100px;position:relative;overflow:hidden}
 #hero::after{content:’’;position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,.1) 50%,rgba(255,255,255,.5) 100%)}
 .hi{position:relative;z-index:2}
 .htag{display:inline-block;background:rgba(255,255,255,.22);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-size:.85rem;font-weight:600;color:#fff;padding:8px 20px;border-radius:40px;margin-bottom:22px}
@@ -43,7 +44,7 @@ body{font-family:'Noto Sans',-apple-system,sans-serif;background:#fff;color:#0d1
 .scue span{font-size:.75rem;font-weight:600;color:#fff}
 
 /* CONTENT */
-.cw{background:#fff;position:relative;z-index:5}
+.cw{background:transparent;position:relative;z-index:5}
 .sec{padding:80px 0}
 .in{max-width:700px;margin:0 auto;padding:0 24px}
 
@@ -53,39 +54,39 @@ body{font-family:'Noto Sans',-apple-system,sans-serif;background:#fff;color:#0d1
 
 /* TOTAL */
 #st{padding:96px 0 64px;text-align:center}
-.kk{display:block;font-size:.75rem;font-weight:600;color:#7a9bb5;margin-bottom:16px}
-.tn{font-size:clamp(5rem,17vw,10rem);font-weight:700;letter-spacing:-.05em;line-height:.9;color:#0d1f2d;margin-bottom:12px;transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.kk{display:block;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.65);margin-bottom:16px}
+.tn{font-size:clamp(5rem,17vw,10rem);font-weight:700;letter-spacing:-.05em;line-height:.9;color:#fff;margin-bottom:12px;transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
 .tn.bump{transform:scale(1.06)}
-.ts{font-size:.95rem;color:#7a9bb5}
+.ts{font-size:.95rem;color:rgba(255,255,255,.7)}
 
 /* DIVIDER */
-.hr{border:none;border-top:1px solid #edf2f7}
+.hr{border:none;border-top:1px solid rgba(255,255,255,.2)}
 
 /* SECTION HEADS */
-.sk{display:block;font-size:.75rem;font-weight:600;color:#1a5fb4;margin-bottom:14px}
-.sh{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;letter-spacing:-.03em;line-height:1.08;color:#0d1f2d;margin-bottom:20px}
-.sp{font-size:1rem;line-height:1.8;color:#4a6880}
+.sk{display:block;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.65);margin-bottom:14px}
+.sh{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;letter-spacing:-.03em;line-height:1.08;color:#fff;margin-bottom:20px}
+.sp{font-size:1rem;line-height:1.8;color:rgba(255,255,255,.8)}
 
 /* BOND CARDS */
 .bcg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
-.bc{background:#f4f8ff;border-radius:14px;padding:24px 20px;border:1.5px solid #daeaf5}
+.bc{background:rgba(255,255,255,.15);border-radius:14px;padding:24px 20px;border:1.5px solid rgba(255,255,255,.25)}
 .bci{font-size:1.8rem;margin-bottom:10px}
-.bc h3{font-size:.92rem;font-weight:700;color:#0d1f2d;margin-bottom:6px}
-.bc p{font-size:.82rem;line-height:1.65;color:#4a6880}
+.bc h3{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:6px}
+.bc p{font-size:.82rem;line-height:1.65;color:rgba(255,255,255,.75)}
 
 /* PAY */
 .pr{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
 .bp{padding:16px 36px;border-radius:12px;font-family:‘Noto Sans’,sans-serif;font-size:.95rem;font-weight:700;text-decoration:none;transition:opacity .15s,transform .1s;display:inline-block;cursor:pointer;border:none}
 .bp:hover{opacity:.85;transform:translateY(-2px)}
 .bv{background:#3d95ce;color:#fff}
-.bz{background:#0d1f2d;color:#ffd84d}
-.pn{font-size:.85rem;color:#4a6880;line-height:1.55}
-.pn strong{color:#0d1f2d;font-weight:700}
+.bz{background:rgba(255,255,255,.2);color:#fff;border:2px solid rgba(255,255,255,.35)}
+.pn{font-size:.85rem;color:rgba(255,255,255,.75);line-height:1.55}
+.pn strong{color:#fff;font-weight:700}
 
 /* FORM — bigger, easier to tap */
 .fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-.fg label{font-size:.8rem;font-weight:600;color:#7a9bb5}
+.fg label{font-size:.8rem;font-weight:600;color:rgba(255,255,255,.75)}
 .fg input,.fg textarea,.fg select{
 border:2px solid #daeaf5;border-radius:12px;
 padding:16px 18px;font-family:inherit;font-size:1rem;
@@ -104,16 +105,16 @@ min-height:54px;
 
 /* GIFT LIST */
 .gl{margin-top:52px}
-.gi{display:flex;gap:14px;padding:20px 0;border-top:1px solid #edf2f7;animation:fadeUp .3s ease forwards}
+.gi{display:flex;gap:14px;padding:20px 0;border-top:1px solid rgba(255,255,255,.2);animation:fadeUp .3s ease forwards}
 .gav{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:#fff}
 .gc{flex:1;min-width:0}
 .gt{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
-.gn{font-size:.9rem;font-weight:700;color:#0d1f2d}
-.gg{font-size:.7rem;font-weight:600;color:#1a5fb4;background:#e8f0fb;padding:2px 8px;border-radius:20px}
-.ga{font-size:.78rem;font-weight:700;color:#2e7d32;background:#e8f5e9;padding:2px 9px;border-radius:20px}
-.gti{font-size:.68rem;color:#b8cfe0;font-weight:500;margin-left:auto}
-.gm{font-size:.88rem;color:#4a6880;line-height:1.6}
-.ge{font-size:.9rem;color:#b8cfe0;font-style:italic;padding:24px 0;border-top:1px solid #edf2f7}
+.gn{font-size:.9rem;font-weight:700;color:#fff}
+.gg{font-size:.7rem;font-weight:600;color:#fff;background:rgba(255,255,255,.2);padding:2px 8px;border-radius:20px}
+.ga{font-size:.78rem;font-weight:700;color:#fff;background:rgba(255,255,255,.25);padding:2px 9px;border-radius:20px}
+.gti{font-size:.68rem;color:rgba(255,255,255,.5);font-weight:500;margin-left:auto}
+.gm{font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.6}
+.ge{font-size:.9rem;color:rgba(255,255,255,.5);font-style:italic;padding:24px 0;border-top:1px solid rgba(255,255,255,.2)}
 
 /* TOAST */
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(36px);background:#0d1f2d;color:#fff;font-size:.82rem;font-weight:700;padding:11px 22px;border-radius:8px;opacity:0;transition:opacity .22s,transform .22s;z-index:600;white-space:nowrap;pointer-events:none}
@@ -204,7 +205,7 @@ min-height:54px;
       <span class="sk">Step 1</span>
       <h2 class="sh">Send your contribution</h2>
       <div class="pr">
-        <a href="https://venmo.com/YOUR-VENMO-HERE" target="_blank" rel="noopener" class="bp bv">Venmo</a>
+        <a href="https://venmo.com/ethanfine" target="_blank" rel="noopener" class="bp bv">Venmo</a>
         <button class="bp bz" id="zelleBtn">Zelle</button>
       </div>
       <p class="pn">📝 Please include <strong>Israel Bond gift for Baby Wallach</strong> in your payment memo.</p>
@@ -221,11 +222,11 @@ min-height:54px;
       <p style="font-size:.88rem;color:#4a6880;line-height:1.65;margin-bottom:20px;font-family:'Noto Sans',sans-serif">Please send your contribution to:</p>
       <div style="background:#f4faff;border:2px solid #daeaf5;border-radius:12px;padding:18px 20px;margin-bottom:10px">
         <div style="font-size:.75rem;font-weight:600;color:#7a9bb5;margin-bottom:4px;font-family:'Noto Sans',sans-serif">Email</div>
-        <div style="font-size:1rem;font-weight:700;color:#0d1f2d;font-family:'Noto Sans',sans-serif" id="zEmail">YOUR-EMAIL-HERE</div>
+        <div style="font-size:1rem;font-weight:700;color:#0d1f2d;font-family:'Noto Sans',sans-serif" id="zEmail">emfine18@gmail.com</div>
       </div>
       <div style="background:#f4faff;border:2px solid #daeaf5;border-radius:12px;padding:18px 20px;margin-bottom:20px">
         <div style="font-size:.75rem;font-weight:600;color:#7a9bb5;margin-bottom:4px;font-family:'Noto Sans',sans-serif">Name</div>
-        <div style="font-size:1rem;font-weight:700;color:#0d1f2d;font-family:'Noto Sans',sans-serif" id="zName">YOUR-NAME-HERE</div>
+        <div style="font-size:1rem;font-weight:700;color:#0d1f2d;font-family:'Noto Sans',sans-serif" id="zName">Ethan Fine</div>
       </div>
       <p style="font-size:.8rem;color:#7a9bb5;font-family:'Noto Sans',sans-serif">Include <strong style="color:#0d1f2d">Israel Bond gift for Baby Wallach</strong> in the memo.</p>
     </div>
@@ -237,7 +238,7 @@ min-height:54px;
     <div class="in">
       <span class="sk">Step 2</span>
       <h2 class="sh">Log your gift &amp; leave a message</h2>
-      <p style="font-size:.9rem;color:#7a9bb5;margin-bottom:28px">After sending, fill this in so Aaron &amp; Shira can see who contributed.</p>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.7);margin-bottom:28px">After sending, fill this in so Aaron &amp; Shira can see who contributed.</p>
 
 ```
   <div class="frow">
@@ -392,11 +393,13 @@ function run(){
 /* ── PASSWORD ──────────────────────────────────────── */
 document.getElementById('pwBtn').addEventListener('click',unlock);
 document.getElementById('pwIn').addEventListener('keydown',function(e){if(e.key==='Enter')unlock();});
+document.body.classList.add('locked');
 
 function unlock(){
   var i=document.getElementById('pwIn'),err=document.getElementById('pwErr');
   if(i.value.trim().toLowerCase()==='shirababy'){
     document.getElementById('lock').style.display='none';
+    document.body.classList.remove('locked');
     initFloats();
     initReveal();
   } else {
