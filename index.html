@@ -7,11 +7,11 @@
 <title>Baby Wallach Has Arrived</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'DM Sans',-apple-system,sans-serif;background:#fff;color:#0d1f2d;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:'Noto Sans',-apple-system,sans-serif;background:#fff;color:#0d1f2d;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* LOCK */
 #lock{position:fixed;inset:0;z-index:900;background:linear-gradient(150deg,#1a5fb4,#2980d4 50%,#a8d8f5);display:flex;align-items:center;justify-content:center;padding:20px}
@@ -142,12 +142,12 @@ min-height:54px;
 
 <div id="lock">
   <div class="lbox">
-    <span class="lbox-ico">🇮🇱</span>
-    <h2>Baby Wallach<br>Has Arrived</h2>
-    <p>Enter the password to join the celebration ✡️</p>
+    <span class="lbox-ico">🍼🦕🇮🇱</span>
+    <h2>Baby Boy Wallach<br>Has Arrived!</h2>
+    <p>The Geller community is coming together to celebrate and give back to Shira — enter the password to join and chip in on something special 💙</p>
     <input class="lin" type="password" id="pwIn" placeholder="password" maxlength="30" autocomplete="current-password">
     <div class="lerr" id="pwErr"></div>
-    <button class="lbtn" id="pwBtn">Enter</button>
+    <button class="lbtn" id="pwBtn">Let me in 🎉</button>
   </div>
 </div>
 
@@ -181,7 +181,7 @@ min-height:54px;
     <div class="in">
       <span class="sk">About the gift</span>
       <h2 class="sh">We're getting Baby Wallach an Israel Bond</h2>
-      <p class="sp">We're pooling contributions so Baby Wallach receives an Israel Bond in his name — a meaningful first connection to Eretz Yisrael that will grow with him. Send your share below, then log it and leave Aaron &amp; Shira a message.</p>
+      <p class="sp">The Geller community is pooling together to give Shira and Aaron something meaningful — an Israel Bond in Baby Wallach's name that will support the State of Israel and grow with him for years to come. Send your share below, then log it and leave the family a message.</p>
       <div class="bcg">
         <div class="bc">
           <div class="bci">🇮🇱</div>
@@ -205,9 +205,29 @@ min-height:54px;
       <h2 class="sh">Send your contribution</h2>
       <div class="pr">
         <a href="https://venmo.com/YOUR-VENMO-HERE" target="_blank" rel="noopener" class="bp bv">Venmo</a>
-        <a href="https://zellepay.com" target="_blank" rel="noopener" class="bp bz">Zelle</a>
+        <button class="bp bz" id="zelleBtn">Zelle</button>
       </div>
-      <p class="pn">📝 Please include <strong>"Israel Bond gift for Baby Wallach"</strong> in your payment memo.</p>
+      <p class="pn">📝 Please include <strong>Israel Bond gift for Baby Wallach</strong> in your payment memo.</p>
+    </div>
+  </div>
+
+  <!-- ZELLE MODAL -->
+
+  <div id="zmodal" style="display:none;position:fixed;inset:0;z-index:800;background:rgba(13,31,45,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:20px">
+    <div style="background:#fff;border-radius:20px;padding:40px 32px 36px;max-width:340px;width:100%;text-align:center;position:relative">
+      <button id="zclose" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.3rem;color:#7a9bb5;cursor:pointer;line-height:1">✕</button>
+      <div style="font-size:40px;margin-bottom:14px">💙</div>
+      <h3 style="font-size:1.2rem;font-weight:700;color:#0d1f2d;margin-bottom:10px;letter-spacing:-.02em">Send via Zelle</h3>
+      <p style="font-size:.88rem;color:#4a6880;line-height:1.65;margin-bottom:20px">Please send your contribution to:</p>
+      <div style="background:#f4faff;border:2px solid #daeaf5;border-radius:12px;padding:18px 20px;margin-bottom:10px">
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#7a9bb5;margin-bottom:4px">Email</div>
+        <div style="font-size:1rem;font-weight:700;color:#0d1f2d" id="zEmail">YOUR-EMAIL-HERE</div>
+      </div>
+      <div style="background:#f4faff;border:2px solid #daeaf5;border-radius:12px;padding:18px 20px;margin-bottom:20px">
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#7a9bb5;margin-bottom:4px">Name</div>
+        <div style="font-size:1rem;font-weight:700;color:#0d1f2d" id="zName">YOUR-NAME-HERE</div>
+      </div>
+      <p style="font-size:.8rem;color:#7a9bb5">Include <strong style="color:#0d1f2d">Israel Bond gift for Baby Wallach</strong> in the memo.</p>
     </div>
   </div>
 
@@ -461,6 +481,12 @@ document.getElementById('subBtn').addEventListener('click',function(){
   }).catch(function(){toast('Something went wrong.');})
   .finally(function(){btn.disabled=false;btn.textContent='Submit';});
 });
+
+/* ── ZELLE MODAL ───────────────────────────────────── */
+var zm=document.getElementById('zmodal');
+document.getElementById('zelleBtn').addEventListener('click',function(){zm.style.display='flex';});
+document.getElementById('zclose').addEventListener('click',function(){zm.style.display='none';});
+zm.addEventListener('click',function(e){if(e.target===zm)zm.style.display='none';});
 
 load().then(render);
 </script>
